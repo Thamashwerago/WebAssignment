@@ -37,6 +37,7 @@
         body {
             background: var(--bg-color);
             color: var(--text-color);
+            overflow-x: hidden;
         }
 
         header {
@@ -46,11 +47,12 @@
             width: 100%;
             z-index: 1000;
             display: flex;
+            background: transparent;
             align-items: center;
             justify-content: space-between;
-            background: transparent;
             padding: 30px 18%;
             transition: ease .40s;
+
         }
 
         .logo {
@@ -158,54 +160,26 @@
             line-height: 1.1;
         }
 
-        .raw.items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-            grid-gap: 2rem;
-            align-items: center;
-            text-align: center;
-            margin-top: 5rem;
+        
+
+        .search {
+            border-radius: 0.5rem;
+            background-color: #f0eded;
+            opacity: 0.6;
         }
-
-        .container {
-            display: flex;
+        .profile{
+            border-radius: 24rem;
+            height: 0.5rem;
+            width: 0.5rem;
         }
-
-        .container-box {
-            background: var(--bg-color);
-            border: 1px solid #f0eded;
-            padding: 50px 10px;
-            border-radius: 4px;
-            transition: all 1s ease 0s;
-            cursor: pointer;
-        }
-
-        .container-img img {
-            height: 85px;
-            width: 85px;
-            padding: 15px;
-            background: var(--bg-color);
-            box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
-            border-radius: 4px;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-
-        .container-box h4 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .container-box:hover {
-            box-shadow: 5px 30px 56.1276px rgb(55 55 55 /12%);
-
+        @media screen {
+            
         }
     </style>
 </head>
 
 <body>
-    <header>
+    <header id="navsection">
         <a herf="#" class="logo">Srilanka</a>
         <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -214,7 +188,8 @@
             <li><a href="#explore">Explore</a></li>
             <li><a href="#category">Category</a></li>
             <li><a href="#about">About us</a></li>
-            <input type="text" placeholder="search.." name="search">
+            <li><input type="text" class="search" placeholder="search.." name="search"></li>
+            <li><img src="" class="profile"></li>
         </ul>
     </header>
 
@@ -230,7 +205,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="co">
         <div>
             <h2>Favorite</h2>
 
@@ -264,11 +239,14 @@
     <!--link to js-->
 
     <script>
-        const header = document.querySelector("header")
-
-
+        var header = document.getElementById("home");
+        var nav = document.getElementById("navsection");
         window.addEventListener("scroll", function () {
-            header.classList.toggle("sticky", window.scrollY > 0);
+            if (window.scrollY > 80) {
+                nav.style.setProperty("background-color", "#f0eded");
+            } else {
+                nav.style.removeProperty("background-color");
+            }
         });
 
     </script>
