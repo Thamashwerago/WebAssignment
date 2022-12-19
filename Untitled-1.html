@@ -1,0 +1,205 @@
+<html>
+
+<head>
+    <title>
+        category demo
+    </title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .title {
+            font-family: roboto;
+            font-style: italic;
+            border-style: solid;
+            border-width: 2px;
+            color: rgb(57, 50, 5);
+            position: absolute;
+            top: 50%;
+            margin: 0;
+            padding: 20px;
+            font-size: 60px;
+            text-align: center;
+            padding-right: 45px;
+            cursor: default;
+
+        }
+
+        .title-photo {
+            border-radius: 0;
+            opacity: 1;
+            object-fit: cover;
+            margin-bottom: 40px;
+            object-position: center;
+            cursor: default;
+        }
+
+
+        p {
+            font-family: arial;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            bottom: 55%;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.7s;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5%;
+            box-shadow: 4px 4px 10px;
+            color: grey;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: opacity 0.7s;
+            object-fit: cover;
+        }
+
+        .container {
+            background-color: black;
+            border-radius: 5%;
+        }
+
+        .container:hover p {
+            opacity: 0;
+        }
+
+        .container:hover img {
+            opacity: 0.9;
+        }
+
+        .container:active {
+            background-color: white;
+            opacity: 1;
+        }
+
+
+        @media only screen and (max-width:600px) {
+            div.container0 {
+                display: grid;
+                grid-template-columns: 1fr;
+                column-gap: 20px;
+                row-gap: 20px;
+
+
+            }
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 5%;
+                box-shadow: 4px 4px 10px;
+                color: grey;
+                opacity: 0.4;
+                object-fit: cover;
+            }
+
+        }
+        .backgroundImage {
+            all:unset;
+            margin: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            position: absolute;
+            
+        }
+    </style>
+
+
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+    <div>
+        <img class="backgroundImage" src="image/01b-sigiriya-cloud-damsels-in-sri-lanka.jpg">
+    </div>
+    <div class="container0" style="
+      display:grid;
+       grid-template-columns:1fr 1fr 1fr;
+       column-gap:40px; 
+       row-gap: 40px;
+       
+     ">
+        <div class="container">
+            <img src="image/maxresdefault.jpg">
+            <p>Explore</p>
+        </div>
+
+        <div class="container">
+            <img src="image/photo-1615460549969-36fa19521a4f.jpg">
+            <p>Hotels</p>
+
+        </div>
+
+        <div class="container">
+            <img src="image/148349-425x282-Party-food.jpg">
+            <p>Food & Drinks</p>
+
+        </div>
+
+        <div class="container">
+            <img src="image/AdobeStock_163967512-1030x687.jpeg">
+            <p>Health & Wellbeing</p>
+        </div>
+
+        <div class="container">
+            <img src="image/sri-lanka-top-attractions-yala-national-park.jpg">
+            <p>Nature</p>
+        </div>
+
+
+        <div class="container">
+            <img src="image/cultural-tours-sri-lanka.jpg">
+            <p>History</p>
+        </div>
+
+        <div class="container">
+            <img src="image/night-life-sri-lanka.jpg">
+            <p>Night Life</p>
+        </div>
+
+        <div class="container">
+            <img src="image/shutterstock-470724314.webp">
+            <p>Culture</p>
+        </div>
+
+        <div class="container">
+            <img src="image/blog1.jpg">
+            <p>Spices</p>
+        </div>
+
+        <div class="container">
+            <img src="image/4MEW1B9_image_crop_117769.jpg">
+            <p>Transport</p>
+        </div>
+
+
+
+        <div class="container">
+            <img src="image/360_F_265760384_PT0fmb34JI1XWklPbQs6F4EfdZMSojh4.jpg">
+            <p>Conectivity</p>
+        </div>
+
+        <div class="container">
+            <img src="image/ITSriLanka-1.jpg">
+            <p>Services</p>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
