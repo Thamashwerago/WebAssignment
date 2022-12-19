@@ -1,0 +1,30 @@
+body{
+    background-image: url("pexels-esrageziyor-11495843.jpg");
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.mapdiv{
+    width:28%;
+    margin: auto;
+    position: relative;
+}
+
+.mapdiv path {
+    fill: green;
+    stroke: black;
+    stroke-width:4px;
+    transition: fill 0.3s;
+}
+
+.mapdiv :hover {
+    fill: rgb(64, 184, 168);
+}
+
+.mapdiv :hover :active {
+    opacity: 0.7;
+}
