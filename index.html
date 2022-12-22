@@ -40,9 +40,14 @@
             color: var(--text-color);
             overflow-x: hidden;
         }
-
-        section {
-            padding: 80px 18%;
+        .container {
+            background-color: #dee5e6d2;
+            margin: 10px 5px 10px 5px;
+            border-radius: 24px;
+            padding: 10px;
+        }
+        .container h2{
+            text-align: left;
         }
 
         .home {
@@ -56,6 +61,7 @@
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             align-items: center;
+            padding: 80px 18%;
         }
 
         .home-text h1 {
@@ -96,10 +102,50 @@
             font-size: var(--h2-font);
             line-height: 1.1;
         }
-
-        @media screen and (max-width:600px){
-
+        .conselect{
+            display: flex;
+            background-color:rgb(213, 218, 218);
+            margin: 10px;
+            border-radius: 24px;
+            padding: 5px;
+            overflow-x: scroll;
+            overflow-y: hidden;
         }
+        .item{
+            background-color: #fff;
+            height: 300px;
+            min-width: 200px;
+            margin: 20px;
+            border-radius: 24px;
+            align-items: center;
+        }
+        ::-webkit-scrollbar{
+            height: 5px;
+            width: 5px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #91979c;
+            border-radius: 24px;
+        }
+        ::-webkit-scrollbar-track{
+            box-shadow: inset 0 0 5px gray;
+            border-radius: 24px;
+        }
+        .itemimage{
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 24px;
+            min-width: 200px;
+        }
+        .itemcontent{
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 24px;
+            min-width: 200px;
+            background-color: #427dae;
+        }
+
+        @media screen and (max-width:600px) {}
     </style>
 </head>
 
@@ -130,51 +176,80 @@
         </div>
     </section>
 
-    <section class="co">
-        <div>
-            <h2>Favorite</h2>
+    <section class="container">
+        <h2>Favorite</h2>
+        <div class="conselect" >
+            <div class="item">
+                <img class="itemimage" src="img\background.webp">
+                <div class="itemcontent">
+                    
+                </div>
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
+            <div class="item">
+
+            </div>
 
         </div>
     </section>
-    <section>
-        <div>
-            <h2>Most Liked</h2>
+    <section class="container">
+        <h2>Most Liked</h2>
+        <div class="conselect" >
+            <div class="item">
+
+            </div>
 
         </div>
     </section>
-    <section>
-        <div>
-            <h2>Most Viewed</h2>
+    <section class="container">
+        <h2>Most Viewed</h2>
+        <div class="conselect" >
+            <div class="item">
+
+            </div>
 
         </div>
     </section>
-    <section>
-        <div>
-            <h2>Recently added</h2>
+    <section class="container">
+        <h2>Recently added</h2>
+        <div class="conselect" >
+            <div class="item">
+
+            </div>
 
         </div>
     </section>
-    <section>
-        <div>
-            <h2>Near by places</h2>
+    <section class="container">
+        <h2>Near by places</h2>
+        <div class="conselect" >
+            <div class="item">
+
+            </div>
 
         </div>
     </section>
 
-    <!--link to js-->
-
-    <script>
-        var header = document.getElementById("home");
-        var nav = document.getElementById("navsection");
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 80) {
-                nav.style.setProperty("background-color", "#f0eded");
-            } else {
-                nav.style.removeProperty("background-color");
-            }
-        });
-
-    </script>
+    <script src="navbar.js"></script>
 
 </body>
 
