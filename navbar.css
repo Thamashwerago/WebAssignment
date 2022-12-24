@@ -1,4 +1,14 @@
-header {
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+
+}
+#navsection {
     position: fixed;
     top: 0;
     right: 0;
@@ -11,12 +21,26 @@ header {
     padding: 30px 18%;
     transition: ease .40s;
 }
+.mobilenav{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 18%;
+    transition: ease .40s;
+}
 
 .logo {
     font-size: 35px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: var(--text-color);
+    color: #221314;
+    text-transform: uppercase;
 }
 
 .navbar {
@@ -24,8 +48,8 @@ header {
 }
 
 .navbar a {
-    color: var(--text-color);
-    font-size: var(--p-font);
+    color: #221314;
+    font-size: 1.1rem;
     font-weight: 500;
     padding: 10px 22px;
     border-radius: 4px;
@@ -33,31 +57,31 @@ header {
 }
 
 .navbar a:hover {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: #fff;
+    color: #221314;
     box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
     border-radius: 4px;
 }
 
 #menu-icon {
-    color: var(--bg-color);
+    color: #fff;
     font-size: 35px;
     z-index: 10001;
     cursor: pointer;
     display: none;
 }
 .header.sticky {
-    background: var(--bg-color);
+    background: #fff;
     padding: 10px 18%;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 .sticky.logo {
-    color: var(--text-color);
+    color: #221314;
 }
 
 .sticky.navbar a {
-    color: var(--text-color);
+    color: #221314;
 }
 .search {
     border-radius: 0.5rem;
@@ -69,4 +93,12 @@ header {
     border-radius: 24rem;
     height: 0.5rem;
     width: 0.5rem;
+}
+@media screen and (max-width:600px) {
+    header {
+        display: none;
+    }
+    .mobilenav{
+        display: flex;
+    }
 }

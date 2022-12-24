@@ -14,17 +14,6 @@
         rel="stylesheet">
     <link href="navbar.css" rel="stylesheet">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            text-decoration: none;
-            list-style: none;
-            scroll-behavior: smooth;
-
-        }
-
         :root {
             --bg-color: #fff;
             --text-color: #221314;
@@ -40,13 +29,15 @@
             color: var(--text-color);
             overflow-x: hidden;
         }
+
         .container {
             background-color: #dee5e6d2;
             margin: 10px 5px 10px 5px;
             border-radius: 24px;
             padding: 10px;
         }
-        .container h2{
+
+        .container h2 {
             text-align: left;
         }
 
@@ -54,7 +45,7 @@
             position: relative;
             width: 100pz;
             height: 100vh;
-            background-image: url("img/background.webp");
+            background-image: url("img/background.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -64,54 +55,17 @@
             padding: 80px 18%;
         }
 
-        .home-text h1 {
-            font-size: var(--big-font);
-            line-height: 1.2;
-            color: var(--bg-color);
-            font-family: 'Paytone One', sans-serif;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-
-
-        }
-
-        .home-text p {
-            color: #ffffffbf;
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 38px;
-            margin-bottom: 50px;
-
-        }
-
-        .home-btn {
-            display: inline-block;
-            font-size: 16px;
-            padding: 15px 30px;
-            background: #ffffffbf;
-            color: var(--main-color);
-            border-radius: ease .40s;
-        }
-
-        .home-btn:hover {
-            background: var(--bg-color);
-            transform: scale(1.1);
-        }
-
-        .text h2 {
-            font-size: var(--h2-font);
-            line-height: 1.1;
-        }
-        .conselect{
+        .conselect {
             display: flex;
-            background-color:rgb(213, 218, 218);
+            background-color: rgb(213, 218, 218);
             margin: 10px;
             border-radius: 24px;
             padding: 5px;
             overflow-x: scroll;
             overflow-y: hidden;
         }
-        .item{
+
+        .item {
             background-color: #fff;
             height: 300px;
             min-width: 200px;
@@ -119,70 +73,72 @@
             border-radius: 24px;
             align-items: center;
         }
-        ::-webkit-scrollbar{
+
+        ::-webkit-scrollbar {
             height: 5px;
             width: 5px;
         }
-        ::-webkit-scrollbar-thumb{
+
+        ::-webkit-scrollbar-thumb {
             background: #91979c;
             border-radius: 24px;
         }
-        ::-webkit-scrollbar-track{
+
+        ::-webkit-scrollbar-track {
             box-shadow: inset 0 0 5px gray;
             border-radius: 24px;
         }
-        .itemimage{
+
+        .itemimage {
             max-width: 150px;
             max-height: 150px;
+            min-height: 150px;
             border-radius: 24px;
             min-width: 200px;
-        }
-        .itemcontent{
-            max-width: 150px;
-            max-height: 150px;
-            border-radius: 24px;
-            min-width: 200px;
-            background-color: #427dae;
         }
 
-        @media screen and (max-width:600px) {}
+        .itemcontent {
+            margin: 10px;
+            text-align: center;
+        }
+        .catname{
+            margin-left: 15px;
+            text-transform: uppercase;
+        }
+        @media screen and (max-width:600px) {
+            
+        }
     </style>
 </head>
 
 <body>
-    <header id="navsection">
-        <a herf="#" class="logo">Srilanka</a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-
-        <ul class="navbar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#category">Category</a></li>
-            <li><a href="#about">About us</a></li>
-            <li><input type="text" class="search" placeholder="search.." name="search"></li>
-            <li><img src="" class="profile"></li>
-        </ul>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="#" class="logo">Travel</a>
+                
+                <ul class="navbar">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#explore">Explore</a></li>
+                    <li><a href="#category">Category</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><input type="text" class="search" placeholder="search.." name="search"></li>
+                    <li><img src="" class="profile"></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <!--home section-->
-    <section class="home" id="home">
-        <div class="home-text">
-            <h1>pearl of the<br>indian ocean</h1>
-            <p>The smiles and hospitality of Sri Lanka are world famous and so are its spicy food,<br> exotic fruits,
-                and an array of sweetmeats found nowhere in the world.<br> With so many cultures
-                living next to each other life in Sri Lanka continues<br>
-                among a series of festivities throughout the year,<br> an ideal recipe for fun and leisure.</p>
-            <a href="#" class="home-btn">Let's go now</a>
-        </div>
-    </section>
+    <div class="home"></div>
 
     <section class="container">
-        <h2>Favorite</h2>
-        <div class="conselect" >
+        <h2 class="catname">Favorite</h2>
+        <div class="conselect">
             <div class="item">
-                <img class="itemimage" src="img\background.webp">
+                <img class="itemimage" src="img\background.jpg">
                 <div class="itemcontent">
-                    
+                    <h3>Title</h3>
                 </div>
             </div>
             <div class="item">
@@ -213,8 +169,8 @@
         </div>
     </section>
     <section class="container">
-        <h2>Most Liked</h2>
-        <div class="conselect" >
+        <h2 class="catname">Most Liked</h2>
+        <div class="conselect">
             <div class="item">
 
             </div>
@@ -222,8 +178,8 @@
         </div>
     </section>
     <section class="container">
-        <h2>Most Viewed</h2>
-        <div class="conselect" >
+        <h2 class="catname">Most Viewed</h2>
+        <div class="conselect">
             <div class="item">
 
             </div>
@@ -231,8 +187,8 @@
         </div>
     </section>
     <section class="container">
-        <h2>Recently added</h2>
-        <div class="conselect" >
+        <h2 class="catname">Recently added</h2>
+        <div class="conselect">
             <div class="item">
 
             </div>
@@ -240,8 +196,8 @@
         </div>
     </section>
     <section class="container">
-        <h2>Near by places</h2>
-        <div class="conselect" >
+        <h2 class="catname">Near by places</h2>
+        <div class="conselect">
             <div class="item">
 
             </div>
@@ -250,7 +206,9 @@
     </section>
 
     <script src="navbar.js"></script>
-
+    <script>
+        
+    </script>
 </body>
 
 </html>

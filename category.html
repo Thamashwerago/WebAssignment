@@ -9,6 +9,7 @@
     <style>
         body {
             margin: 0;
+            background-color:#b7b6b6;
         }
         p {
             font-family: arial;
@@ -36,6 +37,8 @@
         }
 
         .containermain {
+            margin-top: 100px;
+            margin-bottom: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             column-gap: 40px;
@@ -60,18 +63,7 @@
             background-color: white;
             opacity: 1;
         }
-
-        .backgroundImage {
-            all: unset;
-            margin: 0;
-            border: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            position: fixed;
-            filter: brightness(60%);
-        }
-
+        
 
         @media screen and (max-width:600px) {
             .containermain {
@@ -99,9 +91,23 @@
 </head>
 
 <body>
-    <div>
-        <img class="backgroundImage" src="image/background.jpg">
-    </div>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="#" class="logo">Travel</a>
+                <div class="bx bx-menu" id="menu-icon"></div>
+
+                <ul class="navbar">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#explore">Explore</a></li>
+                    <li><a href="#category">Category</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><input type="text" class="search" placeholder="search.." name="search"></li>
+                    <li><img src="" class="profile"></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="containermain">
         <div class="container">
             <img src="image/Explore.jpg">
@@ -167,6 +173,7 @@
         </div>
 
     </div>
+    <script src="navbar.js"></script>
 </body>
 
 </html>
