@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+    <style>
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .links {
+            padding: 10px;
+            margin: 10px;
+            background-color: rgb(213, 218, 218);
+            border-radius: 10px;
+            animation: fadein 2s linear normal;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        a {
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="mobologo">
+                <a herf="index" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="navigation">
+        <a href="about">
+            <div class="links">About</div>
+        </a>
+        <a href="aboutDev">
+            <div class="links">About Developers</div>
+        </a>
+        <a href="aboutNSBM">
+            <div class="links">About NSBM</div>
+        </a>
+        <a>
+            <div class="links" id="navlogin">Login</div>
+        </a>
+    </div>
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
+</body>
+
+</html>

@@ -3,13 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sri Lanka Map</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
     <link href="common.css" rel="stylesheet">
     <link href="navbar.css" rel="stylesheet">
     <style>
         body {
             overflow-x: hidden;
             margin-top: 100px;
+            background-color:#dee5e6d2;
 
         }
 
@@ -19,7 +23,7 @@
         }
 
         .mapdiv {
-            width: 28%;
+            width: 25vw;
             margin: auto;
             position: relative;
             padding: 20px;
@@ -45,6 +49,13 @@
             background-color: #dee5e6d2;
             margin: 20px;
         }
+
+        @media screen and (max-width:600px) {
+            .mapdiv {
+                width: 90vw;
+                margin-top: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -52,15 +63,26 @@
     <header>
         <nav>
             <div id="navsection">
-                <a herf="#" class="logo">Travel</a>
-
+                <a herf="index" class="logo">touronline</a>
                 <ul class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="explore.html">Explore</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><input type="text" class="search" placeholder="search.." name="search"></li>
-                    <li><img src="" class="profile"></li>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="index" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
                 </ul>
             </div>
         </nav>
@@ -308,6 +330,7 @@
     </section>
 
     <script src="navbar.js"></script>
+    <script src="log.js"></script>
 </body>
 
 </html>

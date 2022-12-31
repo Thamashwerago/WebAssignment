@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category demo</title>
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
     <link href="navbar.css" rel="stylesheet">
     <link href="common.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            background-color:#b7b6b6;
+            background-color: #dee5e6d2;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
+
         p {
-            font-family: arial;
             font-size: 20px;
             color: white;
             text-align: center;
@@ -25,6 +28,7 @@
             opacity: 0.7;
             transition: opacity 0.7s;
         }
+
         img {
             width: 100%;
             height: 100%;
@@ -64,7 +68,10 @@
             background-color: white;
             opacity: 1;
         }
-
+        a{
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
         @media screen and (max-width:600px) {
             .containermain {
                 display: grid;
@@ -85,6 +92,11 @@
                 object-fit: cover;
             }
 
+            .containermain {
+                margin-top: 50px;
+                margin-bottom: 60px;
+            }
+
         }
     </style>
 
@@ -94,85 +106,139 @@
     <header>
         <nav>
             <div id="navsection">
-                <a herf="#" class="logo">Travel</a>
-
+                <a herf="index" class="logo">touronline</a>
                 <ul class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="explore.html">Explore</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li><a href="#about">About us</a></li>
-                    <li><input type="text" class="search" placeholder="search.." name="search"></li>
-                    <li><img src="" class="profile"></li>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="index" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <div class="containermain">
         <div class="container">
-            <img src="img/Explore.jpg">
-            <p>Explore</p>
+            <a onclick="filter(1)">
+                <img src="img/Explore.jpg">
+                <p>Explore</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Hotel.jpg">
-            <p>Hotels</p>
-
+            <a onclick="filter(2)">
+                <img src="img/Hotel.jpg">
+                <p>Hotels</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Food.jpg">
-            <p>Food & Drinks</p>
-
+            <a onclick="filter(3)">
+                <img src="img/Food.jpg">
+                <p>Food & Drinks</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Health.jpeg">
-            <p>Health & Wellbeing</p>
+            <a onclick="filter(4)">
+                <img src="img/Health.jpeg">
+                <p>Health & Wellbeing</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Nature.jpg">
-            <p>Nature</p>
+            <a onclick="filter(5)">
+                <img src="img/Nature.jpg">
+                <p>Nature</p>
+            </a>
         </div>
 
 
         <div class="container">
-            <img src="img/History.jpg">
-            <p>History</p>
+            <a onclick="filter(6)">
+                <img src="img/History.jpg">
+                <p>History</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Night_Life.jpg">
-            <p>Night Life</p>
+            <a onclick="filter(7)">
+                <img src="img/Night_Life.jpg">
+                <p>Night Life</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Culture.webp">
-            <p>Culture</p>
+            <a onclick="filter(8)">
+                <img src="img/Culture.webp">
+                <p>Culture</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Spices.jpg">
-            <p>Spices</p>
+            <a onclick="filter(9)">
+                <img src="img/Spices.jpg">
+                <p>Spices</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Transport.jpg">
-            <p>Transport</p>
+            <a onclick="filter(10)">
+                <img src="img/Transport.jpg">
+                <p>Transport</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Connectivity.jpg">
-            <p>Connectivity</p>
+            <a onclick="filter(11)">
+                <img src="img/Connectivity.jpg">
+                <p>Connectivity</p>
+            </a>
         </div>
 
         <div class="container">
-            <img src="img/Services.jpg">
-            <p>Services</p>
+            <a onclick="filter(12)">
+                <img src="img/Services.jpg">
+                <p>Services</p>
+            </a>
         </div>
 
     </div>
     <script src="navbar.js"></script>
+    <script src="log.js"></script>
+    <script>
+        function filter(a) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'phpvariables.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText) {
+                        window.location.href = "showcategory";
+                    }
+
+                }
+
+            }
+
+            xhr.send("setcategory=" + a);
+        }
+    </script>
 </body>
 
 </html>

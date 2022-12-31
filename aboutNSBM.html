@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About University</title>
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        body {
+            height: 2000px;
+            background-color: #dee5e6d2;
+            overflow-x: hidden;
         }
 
         .wrapper {
@@ -29,20 +29,16 @@
             display: flex;
         }
 
-        .bg-1 {
+        .bg {
             flex: 1;
-            background-color: rgb(180, 243, 175);
-        }
-
-        .bg-2 {
-            flex: 1;
-            background-color: rgb(163, 236, 240);
+            background-color: #dee5e6d2;
         }
 
         .about-container {
             width: 85%;
+            margin-top: 100px;
             min-height: 80vh;
-            position: absolute;
+            position: fixed;
             background-color: white;
             box-shadow: 24px 24px 30px #6d8dad;
             display: flex;
@@ -84,7 +80,7 @@
             text-decoration: none;
             padding: 12px;
             margin: 50px 0px;
-            background-color: rebeccapurple;
+            background-color: #686868d2;
             border: 2px solid transparent;
             color: white;
             border-radius: 5px;
@@ -94,7 +90,7 @@
         .text-container a:hover {
             background-color: transparent;
             color: black;
-            border: 2px solid rebeccapurple;
+            border: 2px solid #686868d2;
         }
 
         @media screen and (max-width: 1600px) {
@@ -112,6 +108,24 @@
             }
         }
 
+        p {
+            margin-bottom: 10px;
+        }
+
+        .doc {
+            min-height: 300px;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         @media screen and (max-width: 1100px) {
             .about-container {
                 flex-direction: column;
@@ -126,42 +140,108 @@
                 align-items: center;
             }
         }
+
+        @media screen and (max-width: 600px) {
+            body{
+                height: 1200px;
+            }
+            .about-container {
+                box-shadow: none;
+            }
+
+            .about-container {
+                margin-top: 500px;
+                display: flex;
+                position: absolute;
+            }
+
+            .image-container {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="index" class="logo">touronline</a>
+                <ul class="navbar">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="index" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="wrapper">
 
         <div class="background-container">
-            <div class="bg-1"></div>
-            <div class="bg-2"></div>
+            <div class="bg"></div>
 
         </div>
         <div class="about-container">
 
             <div class="image-container">
                 <img src="img/nsbm.jpg" alt="jpg">
-
             </div>
 
             <div class="text-container">
                 <h1>NSBM Green University Town</h1>
-                <p>NSBM Green University, the nation’s premier degree-awarding institute,
-                    is the first of its kind in South Asia.<br>
-                    It is a government-owned self-financed institute that operates under the purview of the Ministry of
-                    Education.<br>
-                    As a leading educational centre in the country, <br>
-                    NSBM has evolved into becoming a highly responsible higher education institute that offers unique
-                    <br>
-                    opportunities and holistic education on par with international standards while promoting sustainable
-                    living.<br></p>
-                <a href="https://www.nsbm.ac.lk/">See More</a>
+                <div class="doc">
+                    <p>NSBM Green University, the nation's premier degree-awarding institute, is the first of its kind
+                        in South Asia</p>
+                    <p>It is a government-owned self-financed institute that operates under the purview of the Ministry
+                        of Education</p>
+                    <p>As a leading educational centre in the country, NSBM has evolved into becoming a highly
+                        responsible higher education institute that offers unique opportunities and holistic education
+                        on par with international standards while promoting sustainable living</p>
+                </div>
+                <a href="https://www.nsbm.ac.lk/" target="_blank">See More</a>
             </div>
 
         </div>
     </div>
 
-
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
+    <script>
+        function runOnScroll() {
+            var doc = document.querySelector(".doc");
+            if (window.innerWidth > 600) {
+                if (window.scrollY <= 200) {
+                    doc.innerHTML = "<p>NSBM Green University, the nation's premier degree-awarding institute, is the first of its kind in South Asia</p> <p>It is a government-owned self-financed institute that operates under the purview of the Ministry of Education</p> <p>As a leading educational centre in the country, NSBM has evolved into becoming a highly responsible higher education institute that offers unique opportunities and holistic education on par with international standards while promoting sustainable living</p>";
+                } else if (window.scrollY <= 400) {
+                    doc.innerHTML = "<p>NSBM offers a plethora of undergraduate and postgraduate degree programmes under five faculties: Business, Computing, Engineering, Science and Postgraduate & Professional Advancement</p> <p>These study programmes at NSBM are either its own programmes recognised by the University Grants Commission and the Ministry of Higher Education or world-class international programmes conducted in affiliation with top-ranked foreign universities such as University of Plymouth, UK, and Victoria University, Australia</p>";
+                } else if (window.scrollY <= 600) {
+                    doc.innerHTML = "<p>Focused on producing competent professionals and innovative entrepreneurs for the increasingly globalising world, NSBM nurtures its graduates to become productive citizens of society with their specialisation ranging in study fields such as Business, Management, Computing, IT, Engineering, Science, Psychology, Nursing, Interior design, Quantity Surveying, Law and Multimedia</p>";
+                } else if (window.scrollY <= 800) {
+                    doc.innerHTML = "<p>Inspired by the vision of being Sri Lanka's best-performing graduate school and being recognised internationally, NSBM currently achieves approximately 3000 new enrollments per year and houses above 11,000 students reading over 50 degree programmes under 4 faculties</p> <p>Moreover, over the years, NSBM Green University has gifted the nation with 14,000+ graduates and has proved its global presence with an alumni network spread all across the world</p>";
+                } else if (window.scrollY <= 1000) {
+                    doc.innerHTML = "<p>Nestling on a 40-acre land amidst the greenery and serenity in Pitipana, Homagama, NSBM Green University, is an ultra-modern university complex constructed with state-of-the-art facilities and amenities that provides the perfect setting for high-quality teaching, learning and research</p>";
+                }
+            } else {
+                doc.innerHTML="<p>NSBM Green University, the nation's premier degree-awarding institute, is the first of its kind in South Asia</p> <p>It is a government-owned self-financed institute that operates under the purview of the Ministry of Education</p> <p>As a leading educational centre in the country, NSBM has evolved into becoming a highly responsible higher education institute that offers unique opportunities and holistic education on par with international standards while promoting sustainable living</p>"
+            }
+        };
+        window.addEventListener("scroll", runOnScroll);
+    </script>
 </body>
 
 </html>

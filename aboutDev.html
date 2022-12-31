@@ -3,19 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>About Developers</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background: #81c644;
-            font-family: 'Josefin Sans', sans-serif;
+            background: #dee5e6d2;
+            overflow-x: hidden;
         }
 
         .wrapper {
@@ -23,7 +20,6 @@
         }
 
         .wrapper h1 {
-            font-family: 'Allura', cursive;
             font-size: 70px;
             margin-bottom: 60px;
             text-align: center;
@@ -41,7 +37,7 @@
             background: #fff;
             margin: 5px;
             margin-bottom: 50px;
-            width: 300px;
+            width: 350px;
             padding: 20px;
             line-height: 20px;
             color: #8e8b8b;
@@ -49,13 +45,13 @@
         }
 
         .team .team_member h3 {
-            color: #81c644;
+            color: rgb(173, 176, 176);
             font-size: 26px;
             margin-top: 50px;
         }
 
         .team .team_member p.role {
-            color: #ccc;
+            color: rgb(154, 154, 154);
             margin: 12px 0;
             font-size: 12px;
             text-transform: uppercase;
@@ -77,10 +73,48 @@
             height: 100px;
             padding: 5px;
         }
+        .team_member a{
+            text-decoration: none;
+            color: inherit;
+            color: #2a2929;
+            font-weight: bold;
+        }
+        @media screen and (max-width:600px) {
+            .wrapper{
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="index" class="logo">touronline</a>
+                <ul class="navbar">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="index" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="wrapper">
         <h1>Our Team</h1>
         <div class="team">
@@ -88,7 +122,7 @@
                 <div class="team_img">
                     <img src="devImg/Test 01.png" alt="Team_image">
                 </div>
-                <h3>D.T.D Weragoda</h3>
+                <h3>Thamash Weragoda</h3>
                 <p class="role">Developer</p>
                 <p>BSc(Hons) in Computer Science-UG<br><a href="">Linkedin</a></p>
             </div>
@@ -151,7 +185,8 @@
 
         </div>
     </div>
-
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
 </body>
 
 </html>

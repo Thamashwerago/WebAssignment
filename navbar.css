@@ -21,18 +21,28 @@
     padding: 30px 18%;
     transition: ease .40s;
 }
-.mobilenav{
+#navsectionmobile{
     display: none;
     position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    z-index: 1000;
+    background-color: #f0eded;
+    align-items: center;
+    justify-content: center;
+    transition: ease .40s;
+}
+.mobologo{
+    display: none;
     top: 0;
     right: 0;
     width: 100%;
     z-index: 1000;
-    background: transparent;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 18%;
-    transition: ease .40s;
+    background-color: #f0eded;
+    position: fixed;
+    padding: 10px;
+    color: inherit;
 }
 
 .logo {
@@ -40,7 +50,6 @@
     font-weight: 600;
     letter-spacing: 1px;
     color: #221314;
-    text-transform: uppercase;
 }
 
 .navbar {
@@ -54,6 +63,11 @@
     padding: 10px 22px;
     border-radius: 4px;
     transition: ease .40s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.navbar img{
+    all:unset;
 }
 
 .navbar a:hover {
@@ -90,15 +104,27 @@
 }
 
 .profile {
+    all:unset;
     border-radius: 24rem;
-    height: 0.5rem;
-    width: 0.5rem;
+    display: none;
+}
+#navlogin{
+    cursor: pointer;
 }
 @media screen and (max-width:600px) {
-    header {
+    #navsection {
         display: none;
     }
-    .mobilenav{
+    #navsectionmobile{
         display: flex;
+    }
+    #navsectionmobile .navbar a{
+        padding: 4vw;
+    }
+    .mobologo{
+        display: flex;
+    }
+    .logo{
+        font-size: 24px;
     }
 }
