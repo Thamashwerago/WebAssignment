@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect('localhost', 'root', '', 'travel');
-if (!$conn) {
-    die("connection failed" . mysqli_connect_error());
-}
+include 'dbconn.php';
 
 if (isset($_POST['userid'])) {
     $userid = $_SESSION["userid"];
@@ -55,29 +52,11 @@ if (isset($_POST['visit'])) {
         $userid = 0;
     }
     $time = time();
-    $sql = "SELECT * FROM visits WHERE userId='$userid' ORDER BY time DESC";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            if ($row["userId"] != 0) {
-                if ($row["time"] + 3600 < $time) {
-                    $sql = "INSERT INTO visits (userId,placeId,time) VALUES('$userid',0,'$time')";
-                    if (mysqli_query($conn, $sql)) {
-                        echo true;
-                    } else {
-                        echo false;
-                    }
-                    break;
-                }
-            }
-        }
+    $sql = "INSERT INTO visits (userId,time) VALUES('$userid','$time')";
+    if (mysqli_query($conn, $sql)) {
+        echo true;
     } else {
-        $sql = "INSERT INTO visits (userId,sessionId,placeId,time) VALUES('$userid','$sessionid',0,'$time')";
-        if (mysqli_query($conn, $sql)) {
-            echo true;
-        } else {
-            echo false;
-        }
+        echo false;
     }
 }
 

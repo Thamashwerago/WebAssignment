@@ -164,6 +164,10 @@
       .topic {
         font-size: 24px;
       }
+      
+      .description{
+          font-size: 16px;
+      }
     }
   </style>
 
@@ -173,9 +177,9 @@
   <header>
     <nav>
       <div id="navsection">
-        <a herf="index" class="logo">touronline</a>
+        <a herf="home" class="logo">touronline</a>
         <ul class="navbar">
-          <li><a href="index">Home</a></li>
+          <li><a href="home">Home</a></li>
           <li><a href="explore">Explore</a></li>
           <li><a href="category">Category</a></li>
           <li><a href="about">About</a></li>
@@ -184,11 +188,11 @@
         </ul>
       </div>
       <div class="mobologo">
-        <a herf="index" class="logo">touronline</a>
+        <a herf="home" class="logo">touronline</a>
       </div>
       <div id="navsectionmobile">
         <ul class="navbar">
-          <li><a href="index"><img src="img/home.svg"></a></li>
+          <li><a href="home"><img src="img/home.svg"></a></li>
           <li><a href="explore"><img src="img/explore.svg"></a></li>
           <li><a href="category"><img src="img/category.svg"></a></li>
           <li><a href="search"><img src="img/search.svg"></a></li>
@@ -246,10 +250,15 @@
             document.querySelector(".description p").innerHTML = place[0].description;
             var img = document.createElement("img");
             img.className = "itemimg";
-            img.src = 'placeImg/' + place[0].thumbnail;
+            img.src = 'placeimg/' + place[0].thumbnail;
             document.querySelector(".imgwindow").appendChild(img);
+            var imgtab = document.createElement("img");
+            imgtab.className = "tabimg";
+            imgtab.onclick = function () { expand(this); };
+            imgtab.src = 'placeimg/' + place[0].thumbnail;
+            document.querySelector(".imgtab").appendChild(imgtab);
           } else {
-            window.location.href = "index";
+            window.location.href = "home";
           }
         }
 
@@ -273,7 +282,7 @@
               var img = document.createElement("img");
               img.className = "tabimg";
               img.onclick = function () { expand(this); };
-              img.src = 'placeImg/' + images[i].imgName;
+              img.src = 'placeimg/' + images[i].imgName;
               document.querySelector(".imgtab").appendChild(img);
             }
           }
@@ -400,9 +409,9 @@
         if (this.status == 200) {
           var ele = document.getElementById("favorite");
           if (this.responseText) {
-            ele.style.color = "rgb(253, 10, 136)";
+            ele.style.backgroundColor = "rgb(253, 10, 136)";
           } else {
-            ele.style.color = "rgb(255, 255, 255)";
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
           }
         }
       }
@@ -420,9 +429,9 @@
         if (this.status == 200) {
           var ele = document.getElementById("like");
           if (this.responseText) {
-            ele.style.color = "rgb(62, 192, 228)";
+            ele.style.backgroundColor = "rgb(62, 192, 228)";
           } else {
-            ele.style.color = "rgb(255, 255, 255)";
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
           }
         }
       }
@@ -443,9 +452,9 @@
         if (this.status == 200) {
           var ele = document.getElementById("favorite");
           if (this.responseText) {
-            ele.style.color = "rgb(253, 10, 136)";
+            ele.style.backgroundColor = "rgb(253, 10, 136)";
           } else {
-            ele.style.color = "rgb(255, 255, 255)";
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
           }
         }
       }
@@ -463,9 +472,9 @@
         if (this.status == 200) {
           var ele = document.getElementById("like");
           if (this.responseText) {
-            ele.style.color = "rgb(62, 192, 228)";
+            ele.style.backgroundColor = "rgb(62, 192, 228)";
           } else {
-            ele.style.color = "rgb(255, 255, 255)";
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
           }
         }
       }

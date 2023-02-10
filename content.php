@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect('localhost', 'root', '', 'travel');
-if (!$conn) {
-    die("connection failed" . mysqli_connect_error());
-}
+include 'dbconn.php';
 
 if (isset($_SESSION["placeid"])) {
     $placeid = $_SESSION["placeid"];
@@ -113,9 +110,9 @@ if (isset($_POST['setfavourite'])) {
     if (mysqli_num_rows($result) > 0) {
         $query = "DELETE FROM favplace WHERE userId='$userid' AND placeId='$placeid'";
         if (mysqli_query($conn, $query)) {
-            echo true;
-        } else {
             echo false;
+        } else {
+            echo true;
         }
     } else {
         $query = "INSERT INTO favplace (userId,placeId) VALUES('$userid','$placeid')";
@@ -139,9 +136,9 @@ if (isset($_POST['setlike'])) {
         mysqli_query($conn, $sql);
         $query = "DELETE FROM likeplace WHERE userId='$userid' AND placeId='$placeid'";
         if (mysqli_query($conn, $query)) {
-            echo true;
-        } else {
             echo false;
+        } else {
+            echo true;
         }
     } else {
         $sql = "SELECT likes FROM places WHERE placeId='$placeid'";

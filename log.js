@@ -30,7 +30,7 @@ function logout() {
     xhr.onload = function () {
         if (this.status == 200) {
             if(this.responseText){
-                location.reload();
+                window.location.href="login";
             }
         }
     }

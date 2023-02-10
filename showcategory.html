@@ -89,6 +89,24 @@
             margin: 10px;
             text-align: center;
         }
+        
+        .massagebox{
+            display: none;
+            font-size: 24px;
+            color: #587174;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 250px;
+            margin: auto;
+            margin-top: 200px;
+            margin-bottom: 40px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 10px 10px 20px #6d8dad;
+        }
 
 
         @media only screen and (max-width: 600px) {
@@ -103,9 +121,9 @@
     <header>
         <nav>
             <div id="navsection">
-                <a herf="index" class="logo">touronline</a>
+                <a herf="home" class="logo">touronline</a>
                 <ul class="navbar">
-                    <li><a href="index">Home</a></li>
+                    <li><a href="home">Home</a></li>
                     <li><a href="explore">Explore</a></li>
                     <li><a href="category">Category</a></li>
                     <li><a href="about">About</a></li>
@@ -114,11 +132,11 @@
                 </ul>
             </div>
             <div class="mobologo">
-                <a herf="index" class="logo">touronline</a>
+                <a herf="home" class="logo">touronline</a>
             </div>
             <div id="navsectionmobile">
                 <ul class="navbar">
-                    <li><a href="index"><img src="img/home.svg"></a></li>
+                    <li><a href="home"><img src="img/home.svg"></a></li>
                     <li><a href="explore"><img src="img/explore.svg"></a></li>
                     <li><a href="category"><img src="img/category.svg"></a></li>
                     <li><a href="search"><img src="img/search.svg"></a></li>
@@ -127,6 +145,7 @@
             </div>
         </nav>
     </header>
+    <div class="massagebox">No Item to show in this place</div>
     <div class="resultcontainer"></div>
     <script src="navbar.js"></script>
     <script src="log.js"></script>
@@ -174,9 +193,10 @@
                             document.querySelector(".resultcontainer .item:last-child .placea:last-child .itemcontent:last-child").appendChild(h3);
                         }
                         document.querySelector(".resultcontainer").style.display = "grid";
+                        document.querySelector(".massagebox").style.display = "none";
                     } else {
                         document.querySelector(".resultcontainer").style.display = "none";
-                        window.location.href="category";
+                        document.querySelector(".massagebox").style.display = "block";
                     }
                 }
             }

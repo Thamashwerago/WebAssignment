@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect('localhost', 'root', '', 'travel');
-if (!$conn) {
-    die("connection failed" . mysqli_connect_error());
-}
+include 'dbconn.php';
 
 function validate($data)
 {
