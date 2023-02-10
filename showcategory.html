@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+    <style>
+        body {
+            color: #221314;
+            overflow-x: hidden;
+            background-color: #dee5e6d2;
+        }
+
+        .resultcontainer {
+            display: none;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #dee5e6d2;
+            margin: 10px;
+            margin-top: 100px;
+            margin-bottom: 40px;
+            border-radius: 24px;
+            padding: 5px;
+            align-items: center;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        .input:focus {
+            border: 2px solid #242424d2;
+            padding: 12px;
+        }
+
+        .input {
+            color: #242424d2;
+            font-weight: 500;
+            font-size: 24px;
+            border-radius: 40px;
+            line-height: 18px;
+            background-color: transparent;
+            border: 2px solid #686868d2;
+            transition: all 0.3s;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        .placea {
+            color: inherit;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .item {
+            background-color: #fff;
+            height: 200px;
+            min-width: 280px;
+            width: fit-content;
+            margin: 20px;
+            border-radius: 24px;
+            align-items: center;
+            animation: fadein 0.5s linear normal;
+            place-self: center;
+        }
+
+        .itemimage {
+            max-width: 280px;
+            min-width: 280px;
+            max-height: 150px;
+            min-height: 150px;
+            border-radius: 24px;
+        }
+
+        .itemcontent {
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .massagebox{
+            display: none;
+            font-size: 24px;
+            color: #587174;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 250px;
+            margin: auto;
+            margin-top: 200px;
+            margin-bottom: 40px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 10px 10px 20px #6d8dad;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .resultcontainer{
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="home" class="logo">touronline</a>
+                <ul class="navbar">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="home" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="home"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="massagebox">No Item to show in this place</div>
+    <div class="resultcontainer"></div>
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
+    <script>
+        window.onload=showitems();
+
+        function showitems() {
+
+            var containe = document.querySelector(".resultcontainer");
+            while (containe.firstChild) {
+                containe.removeChild(containe.firstChild);
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'category.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText != false) {
+                        var places = JSON.parse(this.responseText);
+
+                        for (var i in places) {
+                            var item = document.createElement("div");
+                            item.className = "item";
+                            document.querySelector(".resultcontainer").appendChild(item);
+
+                            var itema = document.createElement("a");
+                            itema.id = places[i].placeId;
+                            itema.onclick = function () { gocontent(this.id); };
+                            itema.className = "placea";
+                            document.querySelector(".resultcontainer .item:last-child").appendChild(itema);
+
+                            var img = document.createElement("img");
+                            img.className = "itemimage";
+                            img.src = "placeimg/" + places[i].thumbnail;
+                            document.querySelector(".resultcontainer .item:last-child .placea:last-child").appendChild(img);
+
+                            var itemcontent = document.createElement("div");
+                            itemcontent.className = "itemcontent";
+                            document.querySelector(".resultcontainer .item:last-child .placea:last-child").appendChild(itemcontent);
+
+                            var h3 = document.createElement("h3");
+                            h3.innerHTML = places[i].placename;
+                            document.querySelector(".resultcontainer .item:last-child .placea:last-child .itemcontent:last-child").appendChild(h3);
+                        }
+                        document.querySelector(".resultcontainer").style.display = "grid";
+                        document.querySelector(".massagebox").style.display = "none";
+                    } else {
+                        document.querySelector(".resultcontainer").style.display = "none";
+                        document.querySelector(".massagebox").style.display = "block";
+                    }
+                }
+            }
+
+            xhr.send("category");
+        }
+
+        function gocontent(a) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'phpvariables.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText) {
+                        window.location.href = "content";
+                    }
+
+                }
+
+            }
+
+            xhr.send("setplaceid=" + a);
+        }
+    </script>
+</body>
+
+</html>

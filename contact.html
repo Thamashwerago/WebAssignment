@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>touronline</title>
+  <link rel="icon" href="img/icon.png" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="navbar.css" rel="stylesheet">
+  <link href="common.css" rel="stylesheet">
+  <style>
+    body {
+      background: #dee5e6d2;
+      overflow-x: hidden;
+    }
+
+    #form {
+      padding: 60px
+    }
+
+    .main {
+      border-radius: 24px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 50px auto;
+      margin-top: 120px;
+      background-color: #fff;
+      box-shadow: 10px 10px 20px #6d8dad;
+    }
+
+    .input {
+      color: #242424d2;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 5px;
+      line-height: 22px;
+      background-color: transparent;
+      border: 2px solid #686868d2;
+      transition: all 0.3s;
+      padding: 13px;
+      margin-bottom: 15px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: 0;
+    }
+
+    .input:focus {
+      border: 2px solid #242424d2;
+      width: 102%;
+    }
+
+    #massage {
+      text-align: center;
+    }
+
+    .btn {
+      width: 100%;
+      background: #686868d2;
+      border-radius: 5px;
+      border: 0;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      transition: all 0.3s;
+      margin-top: -4px;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: #323232d2;
+    }
+
+    @media screen and (max-width:600px) {
+      #form {
+        padding: 10px;
+      }
+
+      .main {
+        margin: 10px;
+        margin-top: 15vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div id="navsection">
+        <a herf="home" class="logo">touronline</a>
+        <ul class="navbar">
+          <li><a href="home">Home</a></li>
+          <li><a href="explore">Explore</a></li>
+          <li><a href="category">Category</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="search">Search</a></li>
+          <li><a><span id="navlogin">Login</span></a></li>
+        </ul>
+      </div>
+      <div class="mobologo">
+        <a herf="home" class="logo">touronline</a>
+      </div>
+      <div id="navsectionmobile">
+        <ul class="navbar">
+          <li><a href="home"><img src="img/home.svg"></a></li>
+          <li><a href="explore"><img src="img/explore.svg"></a></li>
+          <li><a href="category"><img src="img/category.svg"></a></li>
+          <li><a href="search"><img src="img/search.svg"></a></li>
+          <li><a  href="mobo"><img src="img/expand.svg"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="main">
+    <form id="form">
+      <input name="name" id="name" type="text" class="input" placeholder="Name" required />
+      <input name="email" id="email" type="email" class="input" placeholder="Email" required />
+      <input name="number" id="number" type="tel" class="input" placeholder="Contact Number" />
+      <input name="address" id="address" type="text" class="input" placeholder="Address" />
+      <input name="summary" id="summary" type="text" class="input" placeholder="Summary of Massage" autocomplete="off"
+        required />
+      <input type="submit" class="btn " value="SEND" />
+    </form>
+    <div id="massage"></div>
+  </div>
+  <script src="navbar.js"></script>
+  <script src="log.js"></script>
+  <script>
+    document.getElementById("form").addEventListener("submit", submit);
+
+    function submit(e) {
+      e.preventDefault();
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var number = document.getElementById("number").value;
+      var address = document.getElementById("address").value;
+      var summary = document.getElementById("summary").value;
+
+      var data = "name=" + name + "&email=" + email + "&number=" + number + "&address=" + address + "&summary=" + summary;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'contact.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText) {
+            var massage = document.getElementById("massage");
+            massage.innerHTML = "Massage recived, We will contact you";
+            massage.style.color = "green";
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("number").value = "";
+            document.getElementById("address").value = "";
+            document.getElementById("summary").value = "";
+          } else {
+            var massage = document.getElementById("massage");
+            massage.innerHTML = "OOPS, Some thing wrong please try again later";
+            massage.style.color = "red";
+          }
+        }
+
+      }
+
+      xhr.send(data);
+    }
+  </script>
+</body>
+
+</html>

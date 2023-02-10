@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #dee5e6d2;
+            overflow-x: hidden;
+        }
+
+        section {
+            background-color: #fff;
+            width: 95vw;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .status {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .aboutfaq {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat {
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            min-height: 100px;
+            padding: 5px;
+            margin: 10px;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            background-color: rgb(230, 229, 229);
+            box-shadow: 10px 10px 20px #6d8dad;
+        }
+
+        .statinfo {
+            background-color: #cbcbcbd2;
+            font-weight: 500;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-left: 5vw;
+            margin-right: 5vw;
+            min-height: 50px;
+            min-width: 5vw;
+            padding: 10px;
+        }
+
+        .aboutnav {
+            margin-top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .aboutbar a {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: inherit;
+            border: 2px groove rgba(98, 98, 98, 0.3);
+            border-radius: 10px;
+            padding: 5px;
+            background: transparent;
+            text-align: center;
+
+        }
+
+
+        .aboutbar a:hover {
+            border: 2px groove rgba(98, 98, 98, 0.073);
+            color: #fff;
+            background-color: #686868d2;
+
+        }
+
+        .aboutbar {
+            display: flex;
+        }
+
+        .aboutbar li {
+            padding-left: 8vw;
+            padding-right: 8vw;
+        }
+
+        .faq {
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(230, 229, 229);
+            border-radius: 25px;
+            border-style: ridge;
+        }
+
+        .question {
+            padding: 20px;
+            font-size: 24px;
+            width: 50vw;
+            background-color: rgb(230, 229, 229);
+            border-radius: 25px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .question:hover {
+            background-color: rgb(197, 197, 197);
+        }
+
+        .answer {
+            color: #fff;
+            padding: 20px;
+            display: none;
+            font-size: 16px;
+            width: 50vw;
+            background-color: rgb(69, 69, 69);
+            border-radius: 25px;
+        }
+
+        @media screen and (max-width:600px) {
+            .status {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+
+            .question {
+                max-width: 500px;
+                font-size: 16px;
+                width: 80vw;
+            }
+
+            .answer {
+                max-width: 500px;
+                font-size: 12px;
+                width: 80vw;
+            }
+
+            .aboutnav {
+                display: none;
+            }
+            
+            .aboutfaq{
+                margin-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="home" class="logo">touronline</a>
+                <ul class="navbar">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="home" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="home"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="aboutnav">
+        <ul class="aboutbar">
+            <li><a href="aboutdev">About Dev</a></li>
+            <li><a href="contact">Contact us</a></li>
+            <li><a href="aboutNSBM">About NSBM</a></li>
+        </ul>
+    </section>
+    <section class="status">
+        <diV class="stat">
+            <div class="stattitle">Registered Users</div>
+            <div class="statinfo" id="users">0</div>
+        </diV>
+        <diV class="stat">
+            <div class="stattitle">People Visited</div>
+            <div class="statinfo" id="visits">0</div>
+        </diV>
+        <diV class="stat">
+            <div class="stattitle">Locations Added</div>
+            <div class="statinfo" id="places">0</div>
+        </div>
+        <diV class="stat">
+            <div class="stattitle">Comments Made</div>
+            <div class="statinfo" id="reviews">0</div>
+        </diV>
+    </section>
+    <section class="aboutfaq">
+        <div class="faq">
+            <div class="question" id="q1" onclick="show(0)">
+                <p>&bull; What is the purpose of this website?</p>
+            </div>
+            <div class="answer" id="a1">
+                <p>Our development team is undergraduates studying at NSBM this website is the product of a
+                    web assessment we have done</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q2" onclick="show(1)">
+                <p>&bull; What is the vision of this website?</p>
+            </div>
+            <div class="answer" id="a2">
+                <p>To become an online platform for all kinds of tourists to find the places they love
+                    according to their preferences</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q3" onclick="show(2)">
+                <p>&bull; Why does this website user interface look trashy?</p>
+            </div>
+            <div class="answer" id="a3">
+                <p>The website is at the development stage and limited time to develop a website
+                    from scratch but as we planned over time this website's look and features will be matched today's
+                    standards</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q4" onclick="show(3)">
+                <p>&bull; What do you mean by the development stage?
+                <p>
+            </div>
+            <div class="answer" id="a4">
+                <p>As planned we could not complete the website at the given time as we desire but that
+                    does not mean there is no space for future development that's why we mean this website is still in
+                    the
+                    development stage and we can't say this final product also</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q5" onclick="show(4)">
+                <p>&bull; What are the services offered?</p>
+            </div>
+            <div class="answer" id="a5">
+                <p>At the development stage, we currently offer a limited number of information about
+                    places In the future we are planned to add services like booking hotels, hiring cabs, etc</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q6" onclick="show(5)">
+                <p>&bull; Is this free to use?</p>
+            </div>
+            <div class="answer" id="a6">
+                <p>For now and future this will be free to use, But in the future, we planned to show
+                    advertisements</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q7" onclick="show(6)">
+                <p>&bull; How many countries or places are covered by this website?</p>
+            </div>
+            <div class="answer" id="a7">
+                <p>At this stage, our only focus is Sri Lanka although we only covered a few places for now
+                </p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question" id="q8" onclick="show(7)">
+                <p>&bull; Is it possible to have a booking using the website?</p>
+            </div>
+            <div class="answer" id="a8">
+                <p>At this stage no but we already planned to add a booking service on the website</p>
+            </div>
+        </div>
+    </section>
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
+    <script>
+        function show(a) {
+            const ids = ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8"];
+            var element = document.getElementById(ids[a]);
+            if (element.style.display == "none") {
+                ids.forEach(id => {
+                    document.getElementById(id).style.display = "none";
+                });
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+
+        function users() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'about.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText != false) {
+                        document.getElementById("users").innerHTML = this.responseText;
+                    }
+                }
+
+            }
+
+            xhr.send("user");
+        }
+
+        function locations() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'about.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText != false) {
+                        document.getElementById("places").innerHTML = this.responseText;
+                    }
+                }
+
+            }
+
+            xhr.send("place");
+        }
+        function visits() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'about.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText != false) {
+                        document.getElementById("visits").innerHTML = this.responseText;
+                    }
+                }
+
+            }
+
+            xhr.send("visit");
+        }
+        function reviews() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'about.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText != false) {
+                        document.getElementById("reviews").innerHTML = this.responseText;
+                    }
+                }
+
+            }
+
+            xhr.send("review");
+        }
+
+        window.onload = function () {
+            users();
+            locations();
+            visits();
+            reviews();
+        }
+    </script>
+</body>
+
+</html>

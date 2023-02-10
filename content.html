@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touronline</title>
+  <link rel="icon" href="img/icon.png" type="image/icon type">
+  <link href="navbar.css" rel="stylesheet">
+  <link href="common.css" rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+
+    section {
+      border-radius: 24px;
+      background-color: #dee5e6d2;
+      margin: 20px;
+      margin-top: 100px;
+      padding: 20px;
+    }
+
+    .topic {
+      margin-left: 35px;
+      text-transform: uppercase;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    .imgwindow {
+      display: flex;
+      width: fit-content;
+      min-width: 192px;
+      min-height: 108px;
+      height: 60vh;
+      margin: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      align-items: center;
+    }
+
+    .imgtab {
+      display: flex;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 50px;
+      overflow-x: scroll;
+    }
+
+    .tabimg {
+      height: 150px;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .description {
+      font-size: 24px;
+      margin: 20px;
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .comment {
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 24px;
+
+    }
+
+    .mycomment {
+      width: 100%;
+      display: none;
+      border-radius: 24px;
+      font-size: 18px;
+      padding: 20px;
+      border-color: #c0c0c0;
+    }
+
+    .commentsec {
+      background-color: #cbccccd2;
+      border-radius: 24px;
+    }
+
+    .commentitem {
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .comentitemtitle {
+      padding: 10px;
+      font-size: 24px;
+    }
+
+    .itemimg {
+      height: 60vh;
+      aspect-ratio: 16/9;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      box-shadow: 10px 10px 20px #6d8dad;
+    }
+
+    .icons {
+      display: none;
+      background-color: rgb(255, 255, 255);
+      width: fit-content;
+      border-radius: 24px;
+      margin-left: 20px;
+      justify-content: center;
+    }
+
+    #commentsub {
+      display: none;
+      border-radius: 24px;
+      font-size: 20px;
+      padding: 5px;
+      margin: 10px;
+      border-color: #c0c0c0;
+    }
+
+    #commentsub:hover {
+      background-color: #c0c0c0;
+    }
+
+    .iconimg {
+      width: 40px;
+      height: 40px;
+      background-color: rgb(255, 255, 255);
+      opacity: 0.6;
+      border-radius: 40px;
+      padding: 5px;
+      margin: 2px;
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .iconimg:hover {
+      opacity: 1;
+    }
+
+    .iconimg:first-child {
+      margin-left: 10px;
+    }
+
+    .iconimg:last-child {
+      margin-right: 10px;
+    }
+
+    @media screen and (max-width:600px) {
+      .imgwindow {
+        display: none;
+      }
+
+      .topic {
+        font-size: 24px;
+      }
+      
+      .description{
+          font-size: 16px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div id="navsection">
+        <a herf="home" class="logo">touronline</a>
+        <ul class="navbar">
+          <li><a href="home">Home</a></li>
+          <li><a href="explore">Explore</a></li>
+          <li><a href="category">Category</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="search">Search</a></li>
+          <li><a><span id="navlogin">Login</span></a></li>
+        </ul>
+      </div>
+      <div class="mobologo">
+        <a herf="home" class="logo">touronline</a>
+      </div>
+      <div id="navsectionmobile">
+        <ul class="navbar">
+          <li><a href="home"><img src="img/home.svg"></a></li>
+          <li><a href="explore"><img src="img/explore.svg"></a></li>
+          <li><a href="category"><img src="img/category.svg"></a></li>
+          <li><a href="search"><img src="img/search.svg"></a></li>
+          <li><a href="mobo"><img src="img/expand.svg"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="main">
+      <h1 class="topic"></h1>
+      <div class="imgwindow"></div>
+      <div class="imgtab"></div>
+    </div>
+    <div class="description">
+      <p></p>
+    </div>
+    <div class="icons"><img class="iconimg" id="favorite" src="img/favorite.svg"><img class="iconimg" id="like"
+        src="img/thumbUp.svg"></div>
+    <div class="comment">
+      <textarea class="mycomment" name="mycomment" rows="4" cols="50" placeholder="   Your Comment"></textarea>
+      <input type="button" id="commentsub" value="comment"><span id="response"></span>
+      <div class="commentsec">
+        <p class="comentitemtitle">Comments</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="navbar.js"></script>
+  <script src="log.js"></script>
+  <script>
+    window.onload = function () {
+      userlogin();
+      loadplace();
+      loadimages();
+      recordview();
+      loadcomments();
+      checkfavourite();
+      checklike();
+    }
+
+
+    function loadplace() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText != false) {
+            var place = JSON.parse(this.responseText);
+
+            document.querySelector(".topic").innerHTML = place[0].placename;
+            document.querySelector(".description p").innerHTML = place[0].description;
+            var img = document.createElement("img");
+            img.className = "itemimg";
+            img.src = 'placeimg/' + place[0].thumbnail;
+            document.querySelector(".imgwindow").appendChild(img);
+            var imgtab = document.createElement("img");
+            imgtab.className = "tabimg";
+            imgtab.onclick = function () { expand(this); };
+            imgtab.src = 'placeimg/' + place[0].thumbnail;
+            document.querySelector(".imgtab").appendChild(imgtab);
+          } else {
+            window.location.href = "home";
+          }
+        }
+
+      }
+
+      xhr.send("place");
+    }
+
+
+    function loadimages() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText != false) {
+            var images = JSON.parse(this.responseText);
+            for (var i in images) {
+              var img = document.createElement("img");
+              img.className = "tabimg";
+              img.onclick = function () { expand(this); };
+              img.src = 'placeimg/' + images[i].imgName;
+              document.querySelector(".imgtab").appendChild(img);
+            }
+          }
+        }
+
+      }
+
+      xhr.send("images");
+    }
+
+    function recordview() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText) {
+
+          } else {
+
+          }
+        }
+      }
+
+      xhr.send("record");
+    }
+
+    function userlogin() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'phpvariables.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText) {
+            document.querySelector(".icons").style.display = "flex";
+            document.querySelector(".mycomment").style.display = "block";
+            document.getElementById("commentsub").style.display = "block";
+          } else {
+
+          }
+        }
+      }
+
+      xhr.send("userid_availability");
+    }
+
+    function loadcomments() {
+
+      var containe = document.querySelector(".commentsec");
+      while (containe.firstChild) {
+        containe.removeChild(containe.firstChild);
+      }
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText != false) {
+            var comment = JSON.parse(this.responseText);
+            for (var i in comment) {
+              var item = document.createElement("p");
+              var hr = document.createElement("hr");
+              item.className = "commentitem";
+              item.innerHTML = comment[i].comment;
+              document.querySelector(".commentsec").appendChild(hr);
+              document.querySelector(".commentsec").appendChild(item);
+            }
+          } else {
+
+          }
+        }
+      }
+
+      xhr.send("comment");
+    }
+
+    function expand(a) {
+      document.querySelector(".itemimg").src = a.src;
+    }
+
+    document.getElementById("commentsub").addEventListener("click", addcomment);
+
+    function addcomment() {
+      var data = document.querySelector(".mycomment").value;
+      if (data == "") {
+        return
+      }
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          if (this.responseText) {
+            document.querySelector(".mycomment").value = "";
+            document.getElementById("response").innerHTML = "Comment add";
+            document.getElementById("response").style.color = "green";
+            loadcomments();
+          } else {
+            document.getElementById("response").innerHTML = "OOPS, Try again later";
+            document.getElementById("response").style.color = "red";
+          }
+        }
+      }
+
+      xhr.send("addcomment=" + data);
+    }
+
+    function checkfavourite() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          var ele = document.getElementById("favorite");
+          if (this.responseText) {
+            ele.style.backgroundColor = "rgb(253, 10, 136)";
+          } else {
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
+          }
+        }
+      }
+
+      xhr.send("favourite");
+    }
+
+    function checklike() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          var ele = document.getElementById("like");
+          if (this.responseText) {
+            ele.style.backgroundColor = "rgb(62, 192, 228)";
+          } else {
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
+          }
+        }
+      }
+
+      xhr.send("like");
+    }
+
+    document.getElementById("favorite").addEventListener("click", setfavorite);
+    document.getElementById("like").addEventListener("click", setlike);
+
+    function setfavorite() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          var ele = document.getElementById("favorite");
+          if (this.responseText) {
+            ele.style.backgroundColor = "rgb(253, 10, 136)";
+          } else {
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
+          }
+        }
+      }
+
+      xhr.send("setfavourite");
+    }
+
+    function setlike() {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'content.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+          var ele = document.getElementById("like");
+          if (this.responseText) {
+            ele.style.backgroundColor = "rgb(62, 192, 228)";
+          } else {
+            ele.style.backgroundColor = "rgb(255, 255, 255)";
+          }
+        }
+      }
+
+      xhr.send("setlike");
+    }
+  </script>
+</body>
+
+</html>

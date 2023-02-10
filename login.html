@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touronline</title>
+    <link rel="icon" href="img/icon.png" type="image/icon type">
+    <link href="navbar.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+    <style>
+        body {
+            color: #221314;
+            overflow-x: hidden;
+            background-color: #dee5e6d2;
+        }
+
+        .container {
+            border-radius: 24px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            margin-top: 200px;
+            margin-bottom: 40px;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 10px 10px 20px #6d8dad;
+        }
+
+        #form {
+            padding: 60px
+        }
+
+        .btn {
+            width: 100%;
+            background: #686868d2;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            margin-top: -4px;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            background: #323232d2;
+        }
+
+        .input:focus {
+            border: 2px solid #242424d2;
+            width: 102%;
+        }
+
+        .input {
+            color: #242424d2;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 5px;
+            line-height: 22px;
+            background-color: transparent;
+            border: 2px solid #686868d2;
+            transition: all 0.3s;
+            padding: 13px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        .question {
+            cursor: pointer;
+            padding-top: 20px;
+        }
+
+        .question:hover {
+            text-decoration: underline;
+        }
+
+        #repassword,
+        #email,
+        #q2 {
+            display: none;
+        }
+
+        #massage {
+            color: red;
+        }
+
+        #topic {
+            text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #form {
+                padding: 10px;
+            }
+
+            .container {
+                width: 90%;
+                margin-top: 20vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="navsection">
+                <a herf="home" class="logo">touronline</a>
+                <ul class="navbar">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="explore">Explore</a></li>
+                    <li><a href="category">Category</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="search">Search</a></li>
+                    <li><a><span id="navlogin">Login</span></a></li>
+                </ul>
+            </div>
+            <div class="mobologo">
+                <a herf="home" class="logo">touronline</a>
+            </div>
+            <div id="navsectionmobile">
+                <ul class="navbar">
+                    <li><a href="home"><img src="img/home.svg"></a></li>
+                    <li><a href="explore"><img src="img/explore.svg"></a></li>
+                    <li><a href="category"><img src="img/category.svg"></a></li>
+                    <li><a href="search"><img src="img/search.svg"></a></li>
+                    <li><a href="mobo"><img src="img/expand.svg"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 id="topic">Login</h2>
+        <form class="form-items" id="form">
+            <input class="input" id="username" type="text" placeholder="Username" name="username" required>
+            <input class="input" id="email" type="email" placeholder="Email" name="email">
+            <input class="input " id="password" type="password" placeholder="Password" name="password" required>
+            <input class="input" id="repassword" type="password" placeholder="Re-enter your password" name="password">
+            <input type="submit" id="submit" class="btn" value="Login" />
+            <div class="question">
+                <a id="q1">Don't have an account?</a>
+                <a id="q2">All ready have an account?</a>
+            </div>
+        </form>
+        <div id="massage"></div>
+    </div>
+    <script src="navbar.js"></script>
+    <script src="log.js"></script>
+    <script>
+        document.getElementById("q1").addEventListener("click", showsignin);
+        document.getElementById("q2").addEventListener("click", showlogin);
+
+        function showsignin() {
+            document.getElementById("repassword").style.display = "block";
+            document.getElementById("email").style.display = "block";
+            document.getElementById("q1").style.display = "none";
+            document.getElementById("q2").style.display = "block";
+            document.getElementById("repassword").required = true;
+            document.getElementById("email").required = true;
+            document.getElementById("topic").innerHTML = "Sign In";
+            document.getElementById("submit").value = "Sign In";
+        }
+        function showlogin() {
+            document.getElementById("repassword").style.display = "none";
+            document.getElementById("email").style.display = "none";
+            document.getElementById("q1").style.display = "block";
+            document.getElementById("q2").style.display = "none";
+            document.getElementById("repassword").required = false;
+            document.getElementById("email").required = false;
+            document.getElementById("topic").innerHTML = "Login";
+            document.getElementById("submit").value = "Login";
+        }
+
+        document.getElementById("form").addEventListener("submit", submit);
+
+        function submit(e) {
+            e.preventDefault();
+            if (document.getElementById("submit").value == "Login") {
+                login();
+            } else if (document.getElementById("password").value == document.getElementById("repassword").value) {
+                signin();
+            } else {
+                document.getElementById("massage").innerHTML = "Passwords do not match";
+                document.getElementById("password").value = "";
+                document.getElementById("repassword").value = "";
+            }
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var data = "username=" + username + "&password=" + password;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'login.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText) {
+                        window.location.href = "home";
+                    } else {
+                        document.getElementById("password").value = "";
+                        document.getElementById("username").value = "";
+                        document.getElementById("massage").innerHTML = "Incorrect Username or Password";
+                    }
+                }
+            }
+            xhr.send(data);
+        }
+
+        function signin() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var data = "username=" + username + "&password=" + password + "&email=" + email;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'login.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    if (this.responseText) {
+                        window.location.href = "home";
+                    } else {
+                        document.getElementById("password").value = "";
+                        document.getElementById("username").value = "";
+                        document.getElementById("email").value = "";
+                        document.getElementById("repassword").value = "";
+                        document.getElementById("massage").innerHTML = "OOPS, Some thing wrong please try again later";
+                    }
+                }
+
+            }
+            xhr.send(data);
+        }
+    </script>
+</body>
+
+</html>
