@@ -2,7 +2,7 @@
 
 session_start();
 
-include 'dbconn.php';
+include '../includes/dbconn.php';
 
 if (isset($_POST['user'])) {
     $sql = "SELECT * FROM users";
