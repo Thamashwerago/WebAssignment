@@ -3,7 +3,7 @@ window.onload=checklogin();
 function checklogin() {
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'phpvariables.php', true);
+    xhr.open('POST', 'api/phpvariables.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
     xhr.onload = function () {
@@ -24,7 +24,7 @@ function checklogin() {
 function logout() {
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'phpvariables.php', true);
+    xhr.open('POST', 'api/phpvariables.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
     xhr.onload = function () {

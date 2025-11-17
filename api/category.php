@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'dbconn.php';
+include '../includes/dbconn.php';
 
 if (isset($_SESSION["category"])) {
     $category = $_SESSION["category"];
