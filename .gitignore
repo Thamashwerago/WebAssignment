@@ -1,0 +1,36 @@
+# Database credentials and configuration
+includes/dbconn.php
+
+# Environment variables
+.env
+.env.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*.sql
+
+# Logs
+*.log
+error_log
+
+# Temporary files
+tmp/
+temp/
+cache/
+
+# Uploaded files (configure based on your needs)
+# uploads/*
+# !uploads/.gitkeep
